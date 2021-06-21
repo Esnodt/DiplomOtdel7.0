@@ -114,7 +114,7 @@ namespace DiplomOtdel.Views.Pages
             }
             catch
             {
-                MessageBox.Show("Ошибка, возможно заполнены не все обязательные поля", "Ошибка");
+                MessageBox.Show("Ошибка, возможно заполнены не все обязательные поля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

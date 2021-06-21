@@ -39,6 +39,9 @@ namespace DiplomOtdel.Views.Pages
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddPage());
+            CheckOnVacation.IsChecked = false;
+            CheckOnDismissed.IsChecked = false;
+            CheckOnWork.IsChecked = false;
         }
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
@@ -47,6 +50,9 @@ namespace DiplomOtdel.Views.Pages
             if (editrow != null)
             {
                 NavigationService.Navigate(new EditPage(editrow));
+                CheckOnVacation.IsChecked = false;
+                CheckOnDismissed.IsChecked = false;
+                CheckOnWork.IsChecked = false;
             }
 
             else
@@ -61,6 +67,9 @@ namespace DiplomOtdel.Views.Pages
             if (morerow != null)
             {
                 NavigationService.Navigate(new MoreInfoPage(morerow));
+                CheckOnVacation.IsChecked = false;
+                CheckOnDismissed.IsChecked = false;
+                CheckOnWork.IsChecked = false;
             }
 
             else
@@ -152,6 +161,55 @@ namespace DiplomOtdel.Views.Pages
                     word.Quit(Word.WdSaveOptions.wdDoNotSaveChanges);
                 }
             }
+        }
+
+        private void CheckOnVacation_Checked(object sender, RoutedEventArgs e)
+        {
+            if (CheckOnVacation.IsChecked == true)
+            {
+                CheckOnWork.IsEnabled = false;
+                CheckOnDismissed.IsEnabled = false;
+                ListMain.ItemsSource = dbcontext.db.MainInfo.Where(item => item.EmployeeStatus.ID == 3).ToList();
+            }
+        }
+        private void CheckOnVacation_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ListMain.ItemsSource = dbcontext.db.MainInfo.ToList();
+            CheckOnWork.IsEnabled = true;
+            CheckOnDismissed.IsEnabled = true;
+        }
+
+        private void CheckOnWork_Checked(object sender, RoutedEventArgs e)
+        {
+            if (CheckOnWork.IsChecked == true)
+            {
+                CheckOnVacation.IsEnabled = false;
+                CheckOnDismissed.IsEnabled = false;
+                ListMain.ItemsSource = dbcontext.db.MainInfo.Where(item => item.EmployeeStatus.ID == 1).ToList();
+            }
+        }
+        private void CheckOnWork_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ListMain.ItemsSource = dbcontext.db.MainInfo.ToList();
+            CheckOnVacation.IsEnabled = true;
+            CheckOnDismissed.IsEnabled = true;
+        }
+
+        private void CheckOnDismissed_Checked(object sender, RoutedEventArgs e)
+        {
+            if (CheckOnDismissed.IsChecked == true)
+            {
+                CheckOnWork.IsEnabled = false;
+                CheckOnVacation.IsEnabled = false;
+                ListMain.ItemsSource = dbcontext.db.MainInfo.Where(item => item.EmployeeStatus.ID == 2).ToList();
+            }
+
+        }
+        private void CheckOnDismissed_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ListMain.ItemsSource = dbcontext.db.MainInfo.ToList();
+            CheckOnWork.IsEnabled = true;
+            CheckOnVacation.IsEnabled = true;
         }
 
         private void ButtonSupport_Click(object sender, RoutedEventArgs e)

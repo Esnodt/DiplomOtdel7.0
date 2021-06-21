@@ -239,7 +239,6 @@
 
                         <GroupBox BorderThickness="1" BorderBrush="Black" Header="Фото работника" FontSize="14" Margin="15 0 15 0" Grid.Row="2">
                             <StackPanel>
-                                <Label Content="Фото работника" HorizontalAlignment="Center"/>
                                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
 
                                     <StackPanel>

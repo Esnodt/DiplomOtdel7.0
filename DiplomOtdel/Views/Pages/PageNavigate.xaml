@@ -25,7 +25,7 @@
         <Grid>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
+                    <RowDefinition Height="115"/>
                     <RowDefinition Height="600"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -86,6 +86,27 @@
                                 x:Name="ButtonWord"
                                 Click="ButtonWord_Click"/>
                 </StackPanel>
+                
+                <GroupBox Grid.Row="0" Grid.Column="1" Margin="0 0 10 0" BorderBrush="Black" Header="Статус сотрудников" HorizontalAlignment="Right" VerticalAlignment="Center">
+
+                    <StackPanel>
+
+                        <StackPanel Orientation="Horizontal" >
+                            <Label Content="Сотрудники которые в отпуске" Width="200"/>
+                            <CheckBox x:Name="CheckOnVacation" Unchecked="CheckOnVacation_Unchecked" Height="15" Checked="CheckOnVacation_Checked"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" >
+                            <Label Content="Сотрудники которые работают" Width="200"/>
+                            <CheckBox x:Name="CheckOnWork" Unchecked="CheckOnWork_Unchecked" Height="15" Checked="CheckOnWork_Checked"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" >
+                            <Label Content="Сотрудники которые уволены" Width="200"/>
+                            <CheckBox x:Name="CheckOnDismissed" Unchecked="CheckOnDismissed_Unchecked" Height="15" Checked="CheckOnDismissed_Checked"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
 
                 <StackPanel Grid.Row="1" Grid.Column="1">
                     <ListView x:Name="ListMain" Height="600" Background="Transparent" BorderBrush="Silver">
@@ -113,10 +134,7 @@
                                     </Grid>
 
                                     <Grid Grid.Column="1">
-                                        <StackPanel 
-                                            VerticalAlignment="Top"
-                                                HorizontalAlignment="Left"
-                                                Orientation="Vertical">
+                                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical">
                                             <Label Content="{Binding Surname}" ContentStringFormat="0" FontSize="30"/>
                                             <Label Content="{Binding Name}" ContentStringFormat="Имя: {0}" Margin="0,0,0,0"/>
                                             <Label Content="{Binding Patronymic}" ContentStringFormat="Отчество: {0}"/>

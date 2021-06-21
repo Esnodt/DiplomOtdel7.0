@@ -104,7 +104,7 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Margin="15 0 0 0" VerticalAlignment="Center" BorderBrush="Black" Header="Причина">
+                <GroupBox Margin="15 0 0 0" VerticalAlignment="Center" BorderBrush="Black" Header="Дополнительная информация">
 
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="15">

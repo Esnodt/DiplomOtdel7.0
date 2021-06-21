@@ -116,7 +116,7 @@
 
                         <StackPanel Orientation="Horizontal" Margin="15">
                             <TextBlock Text="Характер работы"/>
-                            <ComboBox x:Name="tbKindOfWork" SelectedIndex="5" Width="150">
+                            <ComboBox x:Name="tbKindOfWork" SelectedIndex="4" Width="150">
                                 <ComboBoxItem>Оптимильный</ComboBoxItem>
                                 <ComboBoxItem>Допустимый</ComboBoxItem>
                                 <ComboBoxItem>Напряженный труд 1 степени</ComboBoxItem>
